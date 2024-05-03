@@ -30,16 +30,10 @@
     <!-- External layers -->
 
     <div class="layer" id="fullScreenToggleLayer">
-      <div class="homeButtonLabel">
-        <div id="homeButton" onclick="hide('masterBoardSlide');show('titleSlide');"></div>
-      </div>
       <div class="fullScreenToggleBig" id="fullScreenToggle">
         <div id="fullScreenButton" onclick="toggleFullScreen();"></div>
         <div id="fullScreenButtonDown" onclick="toggleFullScreen();"></div>
       </div>
-    </div>
-
-    <div id="fader">
     </div>
 
     <div class="layer" id="drawBallLayer">
@@ -64,195 +58,6 @@
     <!-- End -->
 
     <div id="area">
-
-      <div id="titleSlide">
-        <!--Preload bold and italic font-->
-        <div style="position:absolute;">
-          <strong>&nbsp;</strong>
-          <em>&nbsp;</em>
-        </div>
-        <!---->
-        <div class="flexCenter">
-          <div>
-            <div id="title">
-              B I N G O
-            </div>
-            <div id="subheading">
-              Master Board
-            </div>
-            <div id="titleSelection">
-              <div id="howToUse" onclick ="hide('titleSlide');show('howToUseSlide', 'grid');">How to Use</div>
-              <div id="goToMasterBoard" onclick="hide('titleSlide');show('masterBoardSlide', 'grid');">Master Board</div>
-            </div>
-          </div>
-        </div>
-        <div id="copyright">
-          <div id="copyrightLabel" onclick="hide('titleSlide');show('aboutCreditsSlide', 'grid');">Version 3.0.1 ~ ©2011-2018 Games by Tim ~ About/Credits</div>
-        </div>
-      </div>
-
-      <div id="howToUseSlide">
-        <h2>How to Use</h2>
-        <div class="helpNav">
-          <div id="helpNavLine"></div>
-          <div class="helpNavText boldHelp" onclick="navHelp('Basics');" id="howToUseBasicsHeader">Basics</div>
-          <div class="helpNavText" onclick="navHelp('Basics 2');" id="howToUseBasics2Header">Basics 2</div>
-          <div class="helpNavText" onclick="navHelp('Tips & Tricks');" id="howToUseTipsTricksHeader">Tips & Tricks</div>
-          <div class="helpNavText" onclick="navHelp('Thank You');" id="howToUseThanksHeader">Thank You</div>
-        </div>
-        <div class="helpLine"></div>
-        <div class="helpContent">
-          <div class="flexCenter" id="howToUseBasics" style="display:flex;">
-            <div style="text-align:center;">
-              <p style="font-size:26px;"><strong>Bingo Master Board</strong> helps you host and manage your own Bingo games.</p>
-              <p><img src="./assets/img/BingoScreenshot1.png" width="600" style="box-shadow:3px 3px 10px rgba(0,0,0,0.6);"></p>
-              <div style="position:absolute;left:85px;top:270px;font-size:26px;width:200px;">Set the winning Bingo pattern.</div>
-              <div class="helpPointer" style="left:290px;top:320px;width:92px;transform:rotate(10deg);"></div>
-              <div style="position:absolute;left:90px;top:390px;font-size:26px;width:190px;">Randomly draw a Bingo ball.</div>
-              <div class="helpPointer" style="left:290px;top:420px;width:92px;transform:rotate(345deg);"></div>
-              <div style="position:absolute;left:85px;top:510px;font-size:26px;width:200px;">Clear the board for a new game.</div>
-              <div class="helpPointer" style="left:187px;top:402px;width:280px;transform:rotate(285deg);"></div>
-              <div style="position:absolute;left:1000px;top:300px;font-size:26px;width:200px;">Make the board fullscreen.</div>
-              <div class="helpPointer" style="left:928px;top:282px;width:70px;transform:rotate(210deg);"></div>
-            </div>
-          </div>
-          <div class="flexCenter" id="howToUseBasics2">
-            <div style="text-align:center;">
-              <p style="font-size:26px;">&nbsp;</p>
-              <p><img src="./assets/img/BingoScreenshot2.png" width="600" style="box-shadow:3px 3px 10px rgba(0,0,0,0.6);"></p>
-              <div style="position:absolute;left:90px;top:240px;font-size:26px;width:200px;">Change how the board looks.</div>
-              <div class="helpPointer" style="left:295px;top:275px;width:96px;transform:rotate(347deg);"></div>
-              <div style="position:absolute;left:85px;top:370px;font-size:26px;width:210px;">Toggle the balls drawn/remaining counter.</div>
-              <div class="helpPointer" style="left:282px;top:470px;width:90px;transform:rotate(18deg);"></div>
-              <div style="position:absolute;left:60px;top:520px;font-size:26px;width:240px;">Hide the board for a tougher game.</div>
-              <div class="helpPointer" style="left:300px;top:563px;width:78px;"></div>
-              <div style="position:absolute;left:1000px;top:300px;font-size:26px;width:210px;">Manually edit the board if you're drawing balls separately.</div>
-              <div class="helpPointer" style="left:910px;top:312px;width:90px;transform:rotate(200deg);"></div>
-              <div class="helpPointer" style="left:833px;top:402px;width:162px;transform:rotate(165deg);"></div>
-            </div>
-          </div>
-          <div class="flexCenter" id="howToUseTipsTricks">
-            <div style="text-align:center;">
-              <p style="font-size:27px;"><strong>Use keyboard shortcuts.</strong></p>
-              <p class="smallMargin" style="font-size:27px;">Draw balls with the <strong>space bar</strong>.</p>
-              <p class="smallMargin" style="font-size:27px;">Reset the board with the <strong>r key</strong>.</p>
-              <p style="font-size:23px;margin:1.5em 0 0.5em 0;"><strong>Other Shortcuts</strong></p>
-              <div style="display:flex;align-items:center;justify-content:center;">
-                <div>
-                  <p class="smallMargin" style="font-size:23px;"><strong>f</strong> - Toggle fullscreen</p>
-                  <p class="smallMargin" style="font-size:23px;"><strong>t</strong> - Go to Themes page</p>
-                  <p class="smallMargin" style="font-size:23px;"><strong>w</strong> - Go to Winning Pattern page</p>
-                </div>
-                <div style="width:30px;"></div>
-                <div>
-                  <p class="smallMargin" style="font-size:23px;"><strong>enter</strong> - Go to master board from title</p>
-                  <p class="smallMargin" style="font-size:23px;"><strong>v</strong> - Toggle balls drawn/remaining</p>
-                  <p class="smallMargin" style="font-size:23px;"><strong>x</strong> - Hide/show board</p>
-                </div>
-              </div>
-              <p style="font-size:23px;">Add <em>?masterboard</em> to the end of the URL to quickly load the master board.</p>
-            </div>
-          </div>
-          <div class="flexCenter" id="howToUseThanks">
-            <div style="text-align:center;font-size:26px;">
-              <p>Thanks for using Bingo Master Board! I really appreciate it.</p>
-              <p><strong>View the source code</strong> on <a href="https://github.com/TimTree/bingo-master-board" target="_blank" rel="noopener">GitHub</a>.</p>
-              <p><strong>Send me a comment</strong> on the <a href="https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html" target="_blank" rel="noopener">project description page</a>.</p>
-              <p><strong>Report bugs</strong> to the <a href="https://github.com/TimTree/bingo-master-board/issues" target="_blank" rel="noopener">GitHub issues page</a>.</p>
-              <p><strong>See the project's <a class="textLink" onclick="hide('howToUseSlide');show('aboutCreditsSlide', 'grid');">About/Credits</a>.</strong></p>
-              <p><em>~Games by Tim</em></p>
-            </div>
-          </div>
-        </div>
-        <div class="helpFooter">
-          <div class="helpFooterLabel" onclick="hide('howToUseSlide');show('titleSlide');">
-            Main Menu
-          </div>
-        </div>
-      </div>
-
-      <div id="aboutCreditsSlide">
-        <h2>About/Credits</h2>
-        <div class="creditsNav">
-          <div id="creditsNavLine"></div>
-          <div class="creditsNavText boldHelp" onclick="creditsHelp('About');" id="creditsAboutHeader">About</div>
-          <div class="creditsNavText" onclick="creditsHelp('Credits');" id="creditsCreditsHeader">Credits</div>
-        </div>
-        <div class="helpLine"></div>
-        <div class="helpContent">
-          <div class="flexCenter" id="creditsAbout" style="display:flex;">
-            <div class="twoSections">
-              <div>
-                <div class="flexCenter" style="flex-direction:column;">
-                  <img src="./assets/img/appIcon.svg" width="300" style="box-shadow:5px 5px 10px rgba(0,0,0,0.25);border-radius:20px;">
-                  <p><em>Bingo Master Board</em></p>
-                </div>
-              </div>
-              <div>
-                <div class="flexCenter" style="flex-direction:column;font-size:24px;line-height:1.8;">
-                  <span style="margin-bottom:0.8em;font-size:26px;"><strong>Version 3.0.1</strong></span>
-                  <span><strong>Creator:</strong> Timothy Hsu</span>
-                  <span><strong>Released (PPT):</strong> Sept. 3, 2011</span>
-                  <span><strong>Released (Web):</strong> Sept. 17, 2018</span>
-                  <span><strong>Updated:</strong> Nov. 10, 2018</span>
-                  <span><strong>License:</strong> <a href="./LICENSE" target="_blank" rel="noopener">MIT</a></span>
-                  <span style="margin-top:0.8em;font-size:22px;"><a href="https://github.com/TimTree/bingo-master-board" target="_blank" rel="noopener">GitHub Repo</a>
-                  &nbsp;&nbsp;&nbsp;<a href="https://github.com/TimTree/bingo-master-board/releases" target="_blank" rel="noopener">Release History</a></span>
-                  <span style="margin-top:0.8em;text-align:center;">For more projects by the creator, visit<br>
-                    <a href="https://www.gamesbytim.com" target="_blank" rel="noopener"><strong>Games by Tim</strong></a>.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="flexCenter" style="flex-direction:column;font-size:24px;" id="creditsCredits">
-            <p><strong>Games by Tim</strong> would like to thank:</p>
-            <div class="twoSections" style="grid-template-columns:1fr 50px 1fr;">
-              <div>
-                <div style="display:flex;align-items:center;justify-content:center;">
-                  <div>
-                  <p><strong>Microsoft PowerPoint</strong>, the program that got me started with games.</p>
-                  <p><strong>Make School</strong> for teaching me Web development skills utilized in this project</p>
-                  <p><strong>Hugh J. Ward</strong> for creating 75-ball Bingo</p>
-                  <p><strong>My family</strong> for supporting me through the tough stages of development</p>
-                  </div>
-                </div>
-              </div>
-              <div></div>
-              <div>
-                <div style="display:flex;align-items:center;justify-content:center;">
-                  <div>
-                    <p><strong>Andrew Leung</strong> for his strong, encouraging enthusiasm.</p>
-                    <p><strong>rusnakcreative</strong> for motivating me to develop Bingo Master Board further.</p>
-                    <p><strong>You</strong> for using Bingo Master Board AND viewing the credits. You're awesome!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="helpFooter">
-          <div class="helpFooterLabel" onclick="hide('aboutCreditsSlide');show('titleSlide');">
-            Main Menu
-          </div>
-        </div>
-      </div>
-
-      <div id="onboardingSlide">
-        <div class="flexCenter" style="text-align:center;">
-          <div>
-            <h3 style="margin-top:0.5em;">Welcome to <span style="color:#ce181e;">Bingo</span> <span style="color:#948a54;">Master Board</span></h3>
-            <p class="smallMargin">
-              <img src="./assets/img/Onboarding.png" alt="onboarding" width="650">
-            </p>
-            <p class="smallMargin" style="font-size:24px;"><strong>Host and manage</strong> Bingo games.</p>
-            <p class="smallMargin" style="font-size:24px;"><strong>Randomly draw</strong> Bingo balls. <strong>Set your own</strong> winning pattern and look.</p>
-            <div class="helpFooterLabel" style="display:block;margin-top:1em;" onclick="hide('onboardingSlide');show('titleSlide');">
-              Begin
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div id="masterBoardSlide">
         <div id="blocker"></div>
         <div class="controlsCol">
@@ -262,6 +67,7 @@
           </div>
           <div class="hinduLogo"></div>
           <div class="bigBingoBallClass" id="bigBingoBall" onclick="toggleBallsDrawnRemaining('toggle');">
+	    <div id="bigBingoLetter">&nbsp;</div>
             <div id="bigBingoNumber">&nbsp;</div>
           </div>
           <div class="boardToggle" id="hideBoard" onclick="toggleBlocker()">Hide Board</div>
