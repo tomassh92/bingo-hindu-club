@@ -164,6 +164,9 @@ body {
   grid-template-rows: 100%;
   grid-template-areas: "controlsCol  bCol  iCol  nCol  gCol  oCol";
   overflow:hidden;
+  background-image:url("../img/hindu.png");
+  background-size: contain;
+  background-repeat:no-repeat;
 }
 
 #settingsSlide {
