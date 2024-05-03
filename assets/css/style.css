@@ -164,9 +164,6 @@ body {
   grid-template-rows: 100%;
   grid-template-areas: "controlsCol  bCol  iCol  nCol  gCol  oCol";
   overflow:hidden;
-  background-image:url("../img/hindu.png");
-  background-size: contain;
-  background-repeat:no-repeat;
 }
 
 #settingsSlide {
@@ -179,14 +176,10 @@ body {
                       "helpFooter";
 }
 
-#winningPatternSlide {
-  display:none;
-  height:100%;
-  grid-template-columns:100%;
-  grid-template-rows: 96px 1fr 77px;
-  grid-template-areas: "helpHeader"
-                      "helpContent"
-                      "helpFooter";
+#bindoLogo {
+  background-image:url("../img/hindu.png");
+  background-size: contain;
+  background-repeat:no-repeat;
 }
 
 h2 {
