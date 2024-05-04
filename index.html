@@ -1,198 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Bingo Master Board</title>
-		<meta charset="UTF-8">
-		<meta name="description" content="Host and manage Bingo games on the Web">
-		<meta name="author" content="Games by Tim">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-		<link rel="shortcut icon" href="./assets/img/favicon.ico" />
-		<meta name="format-detection" content="telephone=no">
-		<meta name="apple-mobile-web-app-title" content="Bingo Board">
-		<link rel="apple-touch-icon" href="./assets/img/appIcon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#d1cc85"/>
-    <link rel="manifest" href="./manifest.json">
-
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-  </head>
-
-  <body onload="init();">
-
-    <noscript class="noscript">
-      <div>
-        <p><strong>JavaScript is disabled.</strong></p>
-        <p>Please enable it to use Bingo Master Board.</p>
-      </div>
-    </noscript>
-
-    <!-- External layers -->
-
-    <div class="layer" id="fullScreenToggleLayer">
-      <div class="fullScreenToggleBig" id="fullScreenToggle">
-        <div id="fullScreenButton" onclick="toggleFullScreen();"></div>
-        <div id="fullScreenButtonDown" onclick="toggleFullScreen();"></div>
-      </div>
-    </div>
-
-    <div class="layer" id="drawBallLayer">
-      <div id="drawBallDiv">
-        <svg width="159" height="120" viewBox="-79.5 -47 159 94">
-          <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:rgba(164,152,92,0.8);"></stop>
-              <stop offset="100%" style="stop-color:rgba(183,174,127,0.8);"></stop>
-            </linearGradient>
-          </defs>
-          <g id="hex" onclick="randomDraw();">
-          <polygon points="-52.5,45 52.5,45 77.5,0 52.5,-45 -52.5,-45 -77.5,0" stroke="rgb(94,87,52)" stroke-width="2">
-          </polygon>
-            <text x="-41" y="-6" fill="#000" font-size="27">DRAW</text>
-            <text x="-33" y="26" fill="#000" font-size="27">BALL</text>
-          </g>
-        </svg>
-      </div>
-    </div>
-
-    <!-- End -->
-
-    <div id="area">
-      <div id="masterBoardSlide">
-        <div id="blocker"></div>
-        <div class="controlsCol">
-          <div style="margin:-6px 0 0 28px;">
-            <span class="smallButton" id="reset" onclick="resetBoard();">Reset</span>
-            <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
-          </div>
-          <div class="hinduLogo"></div>
-          <div class="bigBingoBallClass" id="bigBingoBall" onclick="toggleBallsDrawnRemaining('toggle');">
-	    <div id="bigBingoLetter">&nbsp;</div>
-            <div id="bigBingoNumber">&nbsp;</div>
-          </div>
-          <div class="boardToggle" id="hideBoard" onclick="toggleBlocker()">Hide Board</div>
-          <div class="boardToggle" id="showBoard" onclick="toggleBlocker()">Show Board</div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="board" id="bingo-board"></div>
+        <div class="sidebar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Hindu_club_logo.svg/1024px-Hindu_club_logo.svg.png" alt="Logo de Bingo">
+            </div>
+            <div class="controls">
+                <div class="number-display" id="last-number">-</div>
+                <button class="btn" onclick="sacarNumero()">Sacar Número</button>
+            </div>
         </div>
-        <div class="bingoCol bCol">
-          <div class="bingoLetter" onclick="hideBingo('B', 'toggle');">
-            <div id="bingoB">B</div>
-          </div>
-          <div class="bingoBalls" id="bingoBallsB">
-            <div class="bingoBall" id="1bingo">1</div>
-            <div class="bingoBall" id="2bingo">2</div>
-            <div class="bingoBall" id="3bingo">3</div>
-            <div class="bingoBall" id="4bingo">4</div>
-            <div class="bingoBall" id="5bingo">5</div>
-            <div class="bingoBall" id="6bingo">6</div>
-            <div class="bingoBall" id="7bingo">7</div>
-            <div class="bingoBall" id="8bingo">8</div>
-            <div class="bingoBall" id="9bingo">9</div>
-            <div class="bingoBall" id="10bingo">10</div>
-            <div class="bingoBall" id="11bingo">11</div>
-            <div class="bingoBall" id="12bingo">12</div>
-            <div class="bingoBall" id="13bingo">13</div>
-            <div class="bingoBall" id="14bingo">14</div>
-            <div class="bingoBall" id="15bingo">15</div>
-	    <div class="bingoBall" id="16bingo">16</div>
-            <div class="bingoBall" id="17bingo">17</div>
-            <div class="bingoBall" id="18bingo">18</div>
-            <div class="bingoBall" id="19bingo">19</div>
-            <div class="bingoBall" id="20bingo">20</div>
-            <div class="bingoBall" id="21bingo">21</div>
-            <div class="bingoBall" id="22bingo">22</div>
-            <div class="bingoBall" id="23bingo">23</div>
-            <div class="bingoBall" id="24bingo">24</div>
-            <div class="bingoBall" id="25bingo">25</div>
-            <div class="bingoBall" id="26bingo">26</div>
-            <div class="bingoBall" id="27bingo">27</div>
-            <div class="bingoBall" id="28bingo">28</div>
-            <div class="bingoBall" id="29bingo">29</div>
-            <div class="bingoBall" id="30bingo">30</div>
-	    <div class="bingoBall" id="31bingo">31</div>
-            <div class="bingoBall" id="32bingo">32</div>
-            <div class="bingoBall" id="33bingo">33</div>
-            <div class="bingoBall" id="34bingo">34</div>
-            <div class="bingoBall" id="35bingo">35</div>
-            <div class="bingoBall" id="36bingo">36</div>
-            <div class="bingoBall" id="37bingo">37</div>
-            <div class="bingoBall" id="38bingo">38</div>
-            <div class="bingoBall" id="39bingo">39</div>
-            <div class="bingoBall" id="40bingo">40</div>
-            <div class="bingoBall" id="41bingo">41</div>
-            <div class="bingoBall" id="42bingo">42</div>
-            <div class="bingoBall" id="43bingo">43</div>
-            <div class="bingoBall" id="44bingo">44</div>
-            <div class="bingoBall" id="45bingo">45</div>
- 	    <div class="bingoBall" id="46bingo">46</div>
-            <div class="bingoBall" id="47bingo">47</div>
-            <div class="bingoBall" id="48bingo">48</div>
-            <div class="bingoBall" id="49bingo">49</div>
-            <div class="bingoBall" id="50bingo">50</div>
-            <div class="bingoBall" id="51bingo">51</div>
-            <div class="bingoBall" id="52bingo">52</div>
-            <div class="bingoBall" id="53bingo">53</div>
-            <div class="bingoBall" id="54bingo">54</div>
-            <div class="bingoBall" id="55bingo">55</div>
-            <div class="bingoBall" id="56bingo">56</div>
-            <div class="bingoBall" id="57bingo">57</div>
-            <div class="bingoBall" id="58bingo">58</div>
-            <div class="bingoBall" id="59bingo">59</div>
-            <div class="bingoBall" id="60bingo">60</div>
-	    <div class="bingoBall" id="61bingo">61</div>
-            <div class="bingoBall" id="62bingo">62</div>
-            <div class="bingoBall" id="63bingo">63</div>
-            <div class="bingoBall" id="64bingo">64</div>
-            <div class="bingoBall" id="65bingo">65</div>
-            <div class="bingoBall" id="66bingo">66</div>
-            <div class="bingoBall" id="67bingo">67</div>
-            <div class="bingoBall" id="68bingo">68</div>
-            <div class="bingoBall" id="69bingo">69</div>
-            <div class="bingoBall" id="70bingo">70</div>
-            <div class="bingoBall" id="71bingo">71</div>
-            <div class="bingoBall" id="72bingo">72</div>
-            <div class="bingoBall" id="73bingo">73</div>
-            <div class="bingoBall" id="74bingo">74</div>
-            <div class="bingoBall" id="75bingo">75</div>
-            <div class="bingoBall" id="76bingo">76</div>
-            <div class="bingoBall" id="77bingo">77</div>
-            <div class="bingoBall" id="78bingo">78</div>
-            <div class="bingoBall" id="79bingo">79</div>
-            <div class="bingoBall" id="80bingo">80</div>
-            <div class="bingoBall" id="81bingo">81</div>
-            <div class="bingoBall" id="82bingo">82</div>
-            <div class="bingoBall" id="83bingo">83</div>
-            <div class="bingoBall" id="84bingo">84</div>
-            <div class="bingoBall" id="85bingo">85</div>
-            <div class="bingoBall" id="86bingo">86</div>
-            <div class="bingoBall" id="87bingo">87</div>
-            <div class="bingoBall" id="88bingo">88</div>
-            <div class="bingoBall" id="89bingo">89</div>
-            <div class="bingoBall" id="90bingo">90</div>
-            <div class="bingoBall" id="90bingo">91</div>
-	    <div class="bingoBall" id="90bingo">92</div>
-	    <div class="bingoBall" id="90bingo">93</div>
-	    <div class="bingoBall" id="90bingo">94</div>
-	    <div class="bingoBall" id="90bingo">95</div>
-	    <div class="bingoBall" id="90bingo">96</div>
-	    <div class="bingoBall" id="90bingo">97</div>
-	    <div class="bingoBall" id="90bingo">98</div>
-	    <div class="bingoBall" id="90bingo">99</div>
-          </div>
-        </div>
-        <!--Workaround to fix Bingo ball jumping bug in Chrome-->
-        <div style="visibility:hidden;">
-          <div class="bingoBallActiveB">a</div>
-          <div class="bingoBallActiveI">a</div>
-          <div class="bingoBallActiveN">a</div>
-          <div class="bingoBallActiveG">a</div>
-          <div class="bingoBallActiveO">a</div>
-        </div>
-        <!--End-->
-      </div>
     </div>
-
-    <script src="./assets/js/featureChecker.js"></script>
-    <script src="./assets/js/main.js"></script>
-
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
